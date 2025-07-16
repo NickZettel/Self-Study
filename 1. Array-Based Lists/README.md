@@ -10,4 +10,4 @@ Access O(1)
 Delete O(n)
 
 ### Summary
-Quickly reads and adds new elements(to the end). Slowly inserts and deletes elements.
+Quickly reads and adds new elements(to the end). Slowly inserts and deletes elements. Can be devided into static arrays with a fixed length and dynamic arrays which can grow to accommodate new elements.
