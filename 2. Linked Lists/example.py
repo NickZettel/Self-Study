@@ -1,3 +1,7 @@
+#todo
+#search for value
+#delete a note
+
 class Node:
     def __init__ (self,data):
         #a node holds data and a pointer to the next node
@@ -9,20 +13,32 @@ class Linked_List:
     def __init__ (self):
         #Linked list stores a pointer to the first item in the list called the head.
         self.head = None
-        #storing a pointer to the last item in the list makes adding a new node O(1) instead of O(n) complexity.
+        #storing a pointer to the last item in the list makes adding a new node to the end O(1) instead of O(n) complexity.
         self.tail = None
     
     def add_new_node (self,data):
-        #if it's the first item in the list.
+        #if it's the first item in the list
         if self.head == None:
             self.head = Node(data)
             self.tail = self.head
             return
         
+        #if there are already items on the list
         new = Node(data)
-        #if there's already a tail
         self.tail.next = new
         self.tail = new
+        
+    def add_node_to_head (self,data):
+        #if it's the first item in the list.
+        if self.head == None:
+            self.head = Node(data)
+            self.tail = self.head
+            return
+        #if there are already items on the list
+        new = Node(data)
+        new.next = self.head
+        self.head = new
+        
     
     def print_list (self):
         #traverse the list starting with the head
@@ -35,9 +51,13 @@ class Linked_List:
         
 
 x = Linked_List()
+
 x.add_new_node(8)
 x.add_new_node(7)
 x.add_new_node(9)
+
+x.add_node_to_head(6)
+
 x.print_list()
 
 
