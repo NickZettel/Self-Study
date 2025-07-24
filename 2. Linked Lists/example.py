@@ -39,22 +39,27 @@ class Linked_List:
         new.next = self.head
         self.head = new
         
-    def delete_node (self,target): #delete the first instance found
+    def delete_node (self,target): #the first instance found will be deleted
         if self.head.data == target: #if target is first node - edge case
             if self.head.next: #and list is longer than one
                 self.head = self.head.next #send old self.head to garbage collector.
             else: #or list is only one element
                 self.head = None #reset list
+                self.tail = None
         
         else: #target is not first node - main case
             previous = self.head
             current = self.head.next
             while current:
-                if current.data == target:
-                    if not current.next : self.tail = current
-                    previous.next = current.next
+                if current.data == target: #match found
+                    if not current.next: #if match is last in the list
+                        self.tail = previous #reset tail
+                        previous.next = None 
+                        return
+                    previous.next = current.next #skip over current (match)
                     return
-                previous = current
+            return #no match found   
+
                 
                 
         
