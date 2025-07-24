@@ -1,4 +1,5 @@
 # Data-Structures-and-Algorithms
+A collection of data structure and algorithm implementations for learning, practice, and experimentation.
 
 1. Array-based List
 2. Linked Lists

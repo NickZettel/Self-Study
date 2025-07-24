@@ -1,4 +1,4 @@
-#include <stdio.h>
+  #include <stdio.h>
 
 int main() {
   //a fixed size (static) array initiated with variables
