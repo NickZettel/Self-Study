@@ -1,13 +1,13 @@
 #todo
-#search for value
-#delete a note
+#search for value - return true or false if it exists
+#delete all instances of a value
+#doubly linked list or circular list
 
 class Node:
     def __init__ (self,data):
         #a node holds data and a pointer to the next node
         self.data = data
         self.next = None
-
 
 class Linked_List:
     def __init__ (self):
@@ -39,33 +39,33 @@ class Linked_List:
         new.next = self.head
         self.head = new
         
-    def delete_node (self,target): #the first instance found will be deleted
+    def delete_node (self,target): #delete the first instance found
+        if self.head is None: #if list is empty - edge case
+            return False
         if self.head.data == target: #if target is first node - edge case
             if self.head.next: #and list is longer than one
                 self.head = self.head.next #send old self.head to garbage collector.
             else: #or list is only one element
                 self.head = None #reset list
                 self.tail = None
+            return True
         
         else: #target is not first node - main case
             previous = self.head
             current = self.head.next
-            while current:
+            while current: #traverse list
                 if current.data == target: #match found
                     if not current.next: #if match is last in the list
                         self.tail = previous #reset tail
                         previous.next = None 
-                        return
+                        return True
                     previous.next = current.next #skip over current (match)
-                    return
-            return #no match found   
+                    return True
+                previous = current #keep track of previous
+                current = current.next #move on to the next one
+            return False#no match found   
 
                 
-                
-        
-       
-        
-    
             
     
     def print_list (self):
