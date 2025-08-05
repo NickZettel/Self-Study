@@ -11,13 +11,13 @@ class Node:
 
 class Linked_List:
     def __init__ (self):
-        #Linked list stores a pointer to the first item in the list called the head.
+        #A pointer to the first item in the list called the head.
         self.head = None
-        #storing a pointer to the last item in the list makes adding a new node to the end O(1) instead of O(n) complexity.
+        #A pointer to the last item in the list makes adding a new node to the end O(1) instead of O(n) complexity.
         self.tail = None
     
     def add_new_node (self,data):
-        #if it's the first item in the list
+        #if it's the start of the list
         if self.head == None:
             self.head = Node(data)
             self.tail = self.head
@@ -29,7 +29,7 @@ class Linked_List:
         self.tail = new
         
     def add_node_to_head (self,data):
-        #if it's the first item in the list.
+        #if it's the start of the list
         if self.head == None:
             self.head = Node(data)
             self.tail = self.head
@@ -39,18 +39,17 @@ class Linked_List:
         new.next = self.head
         self.head = new
         
-    def delete_node (self,target): #delete the first instance found
-        if self.head is None: #if list is empty - edge case
+    def delete_node (self,target): #deletes first instance found
+        if self.head is None: #if list is empty 
             return False
-        if self.head.data == target: #if target is first node - edge case
-            if self.head.next: #and list is longer than one
-                self.head = self.head.next #send old self.head to garbage collector.
+        if self.head.data == target: #if target is first node
+            if self.head.next: #handle list is longer than one
+                self.head = self.head.next #unreference the old self.head
             else: #or list is only one element
                 self.head = None #reset list
                 self.tail = None
             return True
-        
-        else: #target is not first node - main case
+        else: #if target is not first node 
             previous = self.head
             current = self.head.next
             while current: #traverse list
@@ -65,8 +64,8 @@ class Linked_List:
                 current = current.next #move on to the next one
             return False#no match found   
 
-                
-            
+
+    
     
     def print_list (self):
         #traverse the list starting with the head
@@ -79,14 +78,6 @@ class Linked_List:
         
 
 x = Linked_List()
-
-x.add_new_node(8)
-x.add_new_node(7)
-x.add_new_node(9)
-
-x.add_node_to_head(6)
-
-x.print_list()
 
 
 
