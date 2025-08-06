@@ -1,5 +1,5 @@
 #todo
-#search for value - return true or false if it exists
+
 #delete all instances of a value
 #doubly linked list or circular list
 
@@ -64,9 +64,21 @@ class Linked_List:
                 current = current.next #move on to the next one
             return False#no match found   
 
+    def search_for_value (self, target): #return true or false if it exists
+        if self.head is None: #if list is empty 
+            return False
+        if self.head.data == target: #if first node is match
+            return True
+        if self.head.next: #if second node exists
+            current = self.head.next
+        else:
+            return False
+        while current: #traverse list
+            if current.data == target:
+                return True
+        return False
+        
 
-    
-    
     def print_list (self):
         #traverse the list starting with the head
         current = self.head
