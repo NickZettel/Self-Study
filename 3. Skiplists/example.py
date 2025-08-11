@@ -1,12 +1,13 @@
+import random
+
 class skiplist:
     def __init__ (self):
         self.heads = [] #stores the heads of all layers, starting from highest
-
-class linked_list:
-    def __init__ (self):
-        self.start = None
-        self.tail = None
-        self.contents = []
+        
+    def add_value (self,value):
+        
+    def new_layer(self):
+        
         
 class quad_node:
     def __init__ (self):
